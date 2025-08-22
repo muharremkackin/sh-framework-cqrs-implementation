@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>SH.Framework.Library.Cqrs.Implementation</PackageId>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
         <Authors>Muharrem Kaçkın</Authors>
         <Company>Strawhats Company</Company>
         <Description>A comprehensive implementation layer for the SH.Framework.Library.Cqrs package, providing abstract base classes and Result pattern implementation for CQRS operations. This package extends the core CQRS framework with practical base classes for requests, handlers, behaviors, and a standardized Result pattern for better error handling and response management.</Description>
@@ -25,13 +25,8 @@
         <Copyright>Copyright © Strawhats Company 2025</Copyright>
         <Product>SH Framework CQRS Implementation Library</Product>
         <PackageReleaseNotes>
-            v1.0.0:
-            - Initial release with abstract base classes for CQRS pattern implementation
-            - Result pattern implementation for standardized response handling
-            - Request and Notification base classes with automatic ID generation
-            - RequestHandler and NotificationBehavior abstract implementations
-            - RequestBehavior base class for pipeline behaviors
-            - Comprehensive error handling and success/failure result patterns
+            v1.0.1:
+            - Unneccasry file removed
         </PackageReleaseNotes>
     </PropertyGroup>
 

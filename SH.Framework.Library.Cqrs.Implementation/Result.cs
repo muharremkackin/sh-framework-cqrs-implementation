@@ -14,7 +14,7 @@ public class Result
     public virtual bool IsSuccess => Code == 0;
     public virtual bool IsFailure => !IsSuccess;
     public virtual Dictionary<string, Dictionary<string, string>>? Errors { get; init; } = new();
-    public Guid? RequestId { get; init; }
+    public Guid? RequestId { get; set; }
 
     public Result()
     {

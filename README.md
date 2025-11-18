@@ -419,7 +419,7 @@ return Result.Failure<UserDto>(ResultCode.Failure, errors, request.RequestId);
 ## 🔗 Dependencies
 
 - **SH.Framework.Library.Cqrs**: Core CQRS framework (automatically included)
-- **.NET 9.0**: Target framework
+- **.NET 8.0, .NET 9.0, .NET 10.0**: Target framework
 
 ## 🤝 Contributing
 

@@ -1,11 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>SH.Framework.Library.Cqrs.Implementation</PackageId>
-        <Version>1.1.0</Version>
+        <Version>2.0.0</Version>
         <Authors>Muharrem Kaçkın</Authors>
         <Company>Strawhats Company</Company>
         <Description>A comprehensive implementation layer for the SH.Framework.Library.Cqrs package, providing abstract base classes and Result pattern implementation for CQRS operations. This package extends the core CQRS framework with practical base classes for requests, handlers, behaviors, and a standardized Result pattern for better error handling and response management.</Description>
@@ -28,10 +27,12 @@
             v1.1.0:
             - Result RequestId property can set from set method
         </PackageReleaseNotes>
+        <TargetFrameworks>net9.0;net10.0;net8.0</TargetFrameworks>
+        <LangVersion>14</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="SH.Framework.Library.Cqrs" Version="1.4.1" />
+        <PackageReference Include="SH.Framework.Library.Cqrs" Version="2.0.0" />
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

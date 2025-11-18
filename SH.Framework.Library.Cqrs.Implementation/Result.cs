@@ -10,6 +10,7 @@ public class Result<TResponse>: Result
 public class Result
 {
     public virtual int Code { get; init; }
+    public virtual string? CategorizedCode { get; init; }
     public virtual string? Description { get; init; }
     public virtual bool IsSuccess => Code == 0;
     public virtual bool IsFailure => !IsSuccess;
@@ -24,6 +25,7 @@ public class Result
     {
         Code = ResultCode.Success.Code,
         Description = ResultCode.Success.Description,
+        CategorizedCode = ResultCode.Success.ToString(),
         RequestId = requestId
     };
 
@@ -41,6 +43,7 @@ public class Result
     {
         Code = resultCode.Code,
         Description = resultCode.Description,
+        CategorizedCode =  resultCode.ToString(),
         Errors = errors,
         RequestId = requestId
     };
@@ -49,6 +52,7 @@ public class Result
     {
         Code = ResultCode.Success.Code,
         Description = ResultCode.Success.Description,
+        CategorizedCode =  ResultCode.Success.ToString(),
         Data = data,
         RequestId = requestId
     };
@@ -67,6 +71,7 @@ public class Result
     {
         Code = resultCode.Code,
         Description = resultCode.Description,
+        CategorizedCode = resultCode.ToString(),
         Errors = errors,
         RequestId = requestId
     };

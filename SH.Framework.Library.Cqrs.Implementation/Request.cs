@@ -1,13 +1,13 @@
-﻿using SH.Framework.Library.Cqrs;
-
-namespace SH.Framework.Library.Cqrs.Implementation;
+﻿namespace SH.Framework.Library.Cqrs.Implementation;
 
 public abstract class Request: IRequest<Result>, IHasRequestId
 {
-    public Guid RequestId => Guid.NewGuid();
+    private readonly Guid _requestId = Guid.NewGuid();
+    public Guid RequestId() => _requestId;
 }
 
 public abstract class Request<TResponse>: IRequest<Result<TResponse>>, IHasRequestId
 {
-    public Guid RequestId => Guid.NewGuid();
+    private readonly Guid _requestId = Guid.NewGuid();
+    public Guid RequestId() => _requestId;
 }

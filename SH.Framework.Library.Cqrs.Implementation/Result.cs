@@ -14,19 +14,41 @@ public class Result
     public virtual string? Description { get; init; }
     public virtual bool IsSuccess => Code == 0;
     public virtual bool IsFailure => !IsSuccess;
-    public virtual Dictionary<string, Dictionary<string, string>>? Errors { get; init; } = new();
+    public virtual Dictionary<string, Dictionary<string, string>> Errors { get; init; } = new();
     public Guid? RequestId { get; set; }
 
     public Result()
     {
     }
 
-    public static Result Success(Guid? requestId = null) => new()
+    public static Result Success(ResultCode? resultCode = null) => new()
     {
-        Code = ResultCode.Success.Code,
-        Description = ResultCode.Success.Description,
-        CategorizedCode = ResultCode.Success.ToString(),
-        RequestId = requestId
+        Code = resultCode != null ? resultCode.Code : ResultCode.Success.Code,
+        Description = resultCode != null ? resultCode.Description : ResultCode.Success.Description,
+        CategorizedCode = resultCode != null ? resultCode.ToString() : ResultCode.Success.ToString()
+    };
+
+    public static Result Success(int? code = null, string? description = null) => new()
+    {
+        Code = code ?? ResultCode.Success.Code,
+        Description = description ?? ResultCode.Success.Description,
+        CategorizedCode = code != null ? $"CUSTOM{code}" : ResultCode.Success.ToString()
+    };
+
+    public static Result<TResponse> Success<TResponse>(TResponse? data, ResultCode? resultCode = null) => new()
+    {
+        Code =  resultCode != null ? resultCode.Code : ResultCode.Success.Code,
+        Description = resultCode != null ? resultCode.Description : ResultCode.Success.Description,
+        CategorizedCode = resultCode != null ? resultCode.ToString() : ResultCode.Success.ToString(),
+        Data = data,
+    };
+
+    public static Result<TResponse> Success<TResponse>(TResponse? data, int? code = null, string? description = null) => new()
+    {
+        Code = code ?? ResultCode.Success.Code,
+        Description = description ?? ResultCode.Success.Description,
+        CategorizedCode = code != null ? $"CUSTOM{code}" : ResultCode.Success.ToString(),
+        Data = data,
     };
 
     public static Result Failure(int code, string description,
@@ -34,7 +56,7 @@ public class Result
     {
         Code = code,
         Description = description,
-        Errors = errors,
+        Errors = errors ?? [],
         RequestId = requestId
     };
 
@@ -44,35 +66,26 @@ public class Result
         Code = resultCode.Code,
         Description = resultCode.Description,
         CategorizedCode =  resultCode.ToString(),
-        Errors = errors,
-        RequestId = requestId
-    };
-
-    public static Result<TResponse> Success<TResponse>(TResponse? data, Guid? requestId = null) => new()
-    {
-        Code = ResultCode.Success.Code,
-        Description = ResultCode.Success.Description,
-        CategorizedCode =  ResultCode.Success.ToString(),
-        Data = data,
+        Errors = errors ?? [],
         RequestId = requestId
     };
 
     public static Result<TResponse> Failure<TResponse>(int code, string description,
         Dictionary<string, Dictionary<string, string>>? errors = null, Guid? requestId = null) => new()
-    {
-        Code = code,
-        Description = description,
-        Errors = errors,
-        RequestId = requestId
-    };
+        {
+            Code = code,
+            Description = description,
+            Errors = errors ?? [],
+            RequestId = requestId
+        };
 
     public static Result<TResponse> Failure<TResponse>(ResultCode resultCode,
         Dictionary<string, Dictionary<string, string>>? errors = null, Guid? requestId = null) => new()
-    {
-        Code = resultCode.Code,
-        Description = resultCode.Description,
-        CategorizedCode = resultCode.ToString(),
-        Errors = errors,
-        RequestId = requestId
-    };
+        {
+            Code = resultCode.Code,
+            Description = resultCode.Description,
+            CategorizedCode = resultCode.ToString(),
+            Errors = errors ?? [],
+            RequestId = requestId
+        };
 }

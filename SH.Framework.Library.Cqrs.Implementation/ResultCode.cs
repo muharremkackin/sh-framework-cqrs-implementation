@@ -8,7 +8,7 @@ public class ResultCode
 
     public override string ToString()
     {
-        return $"{Category ?? "UC"}{Code}";
+        return $"{Category ?? "UC"}{Code:D6}";
     }
     
     protected ResultCode(int code, string? category, string? description = null)

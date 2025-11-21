@@ -4,7 +4,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>SH.Framework.Library.Cqrs.Implementation</PackageId>
-        <Version>2.1.0</Version>
+        <Version>2.2.0</Version>
         <Authors>Muharrem Kaçkın</Authors>
         <Company>Strawhats Company</Company>
         <Description>A comprehensive implementation layer for the SH.Framework.Library.Cqrs package, providing abstract base classes and Result pattern implementation for CQRS operations. This package extends the core CQRS framework with practical base classes for requests, handlers, behaviors, and a standardized Result pattern for better error handling and response management.</Description>

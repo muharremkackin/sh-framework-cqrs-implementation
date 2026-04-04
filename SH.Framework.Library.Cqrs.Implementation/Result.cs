@@ -23,7 +23,7 @@ public class Result
     [ReadOnly(true)]
     public Dictionary<string, string[]> Errors { get; init; } = [];
     [ReadOnly(true)]
-    public Guid? RequestId { get; init; }
+    public Guid? RequestId { get; set; }
 
     public Result()
     {

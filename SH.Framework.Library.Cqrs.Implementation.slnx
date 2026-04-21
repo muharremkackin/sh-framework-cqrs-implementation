@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="SH.Framework.Library.Cqrs.Implementation.Tests/SH.Framework.Library.Cqrs.Implementation.Tests.csproj" Id="2907bd0c-a944-43d2-8b6e-73a448db8d7e" />
   <Project Path="SH.Framework.Library.Cqrs.Implementation/SH.Framework.Library.Cqrs.Implementation.csproj" />
 </Solution>
